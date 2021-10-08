@@ -1,0 +1,22 @@
+{{ define "main" }}
+
+<!-- List pages -- used for Categories, Tags -->
+<h1 class="text-center mt-3">
+    {{$typevar :=  .Type | humanize }}
+    {{ if ( eq $typevar  .Title  ) }}
+        {{ .Type | humanize }}
+    {{ else }}
+        {{ .Type | humanize }}: {{ .Title }}
+    {{ end }}
+</h1>
+
+<div class="homepage-content">
+    <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+    {{ .Content }}
+</div>
+
+<div class="container">
+    {{ partial "card_list.html" . }}
+</div>
+
+{{ end }}

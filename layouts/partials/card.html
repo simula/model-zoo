@@ -1,0 +1,27 @@
+<!-- Template for cards showing on list pages, e.g the main page -->
+
+<div class="card">
+
+    <!-- If entry has a summary, show title on top, and tags below. -->
+    {{ if .Summary }}
+        <h5 class="card-header">{{ .Title}}</h5>
+        <div class="card-body ">
+            <!-- <h5 class="card-title">{{ .Title}} </h5> -->
+            <p class="card-text">{{ .Summary }}</p>
+            <p style="margin-bottom:5px;">
+                {{ partial "list_tags.html" .}}
+            </p>
+            <p>
+                {{ partial "list_categories.html" .}}
+            </p>
+            <a href={{ .Permalink }} class="stretched-link"></a>
+        </div>
+    <!-- Otherwise, we are in a tag/category listing -- show title in card body. -->
+    {{ else }}
+        <div class="card-body ">
+            <h5 class="card-title">{{ .Title}} </h5>
+            <a href={{ .Permalink }} class="stretched-link"></a>
+        </div>
+    {{ end }}
+
+</div>

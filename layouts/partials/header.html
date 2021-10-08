@@ -1,0 +1,29 @@
+<!-- Nav bar -->
+{{ $url := .RelPermalink }}
+
+<nav class="navbar navbar-expand-md navbar-light bg-light py-4">  <!-- style="background-color: #E7E7E8;"> -->
+    <div class="container">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+                <img src="{{.Site.BaseURL}}{{ .Site.Params.logo }} " alt="" height="42" class="d-inline-block" style="padding-bottom: 14px;">
+                Model Zoo
+                </a>
+            <ul class="navbar-nav me-auto">
+                <h5 style="margin-right: 4em">BETA</h5>
+                {{ range .Site.Menus.main }}
+                    <li class="nav-item">
+                        <a class="nav-link {{ if eq $url .URL }}active{{ end }}" href="{{ .URL }}"> {{ .Name }}</a>
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
+        
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="btn btn-success" href="#">Submit a model</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,22 @@
+<!-- Template for lists of cards containing all page content (meaning model list) -->
+
+<!-- Front page -->
+{{ if .IsHome }}
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {{ range where .Site.RegularPages "Section" "models" }}
+        <div class="col">
+            {{ partial "card.html" . }}
+        </div>
+    {{ end }}
+</div>
+<!-- List pages -->
+{{ else }}
+<br>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {{ range .Pages }}
+        <div class="col">
+            {{ partial "card.html" . }}
+        </div>
+    {{ end }}
+</div>
+{{ end }}

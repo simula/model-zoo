@@ -1,0 +1,5 @@
+<!-- Loop over tags and create links -->
+
+{{ range .Params.tags }}
+    <span class="btn btn-sm btn-outline-success tag-btn"><i class="bi bi-tag"></i> {{ . }}</span>
+{{ end}}

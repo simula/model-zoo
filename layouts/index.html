@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+<!-- Our main page -->
+<div class='container'>
+  <br>
+  <div class="p-5 mb-4 bg-light border rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Simula Model Zoo</h1>
+      <p class="col-md-8 fs-4">Browse models in the Zoo</p>
+    </div>
+  </div>
+  
+  <!-- Load all the models as cards -->
+  {{ partial "card_list.html" . }}
+</div>
+
+{{ end }}

@@ -1,0 +1,35 @@
+<!-- 
+    Arguments: "tabname1;tabname2;..." "tabcontent1" "tabcontent2" "..."
+    To have arguments span multiple lines in markdown, enclose it in backticks
+ -->
+
+ <div class="card bg-light">
+    <div class="card-body">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            
+            <!-- Create tabs -->
+            {{ $tabnames := .Get 0 }}
+            {{ $tabnames := split $tabnames ";"}}
+            {{ range $index, $value := $tabnames }}
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link {{ if (eq $index 0) }}active{{ end }}" id="home-tab" data-bs-toggle="tab" data-bs-target="#{{ . }}" type="button" role="tab">{{ . }}</button>
+                </li>
+            {{ end }}
+        </ul>
+        
+        <!-- Fill tab contents -->
+        <div class="tab-content" id="myTabContent">
+            {{ range $index, $value := $tabnames }}
+                <div class="tab-pane fade show {{ if (eq $index 0) }}active{{ end }}" id="{{ $value }}" role="tabpanel">
+                    {{ $param_index := add $index 1 }}
+                    {{ $content := $.Get $param_index }}
+                    <br>
+                    <div class="highlight">
+                        <pre tabindex="0" class="chroma"><code class="language-{{ $value }}" data-lang="{{ $value }}">{{ $content }}</code></pre>
+                    </div>
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+<br>

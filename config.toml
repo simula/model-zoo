@@ -1,0 +1,34 @@
+baseURL = 'modelzoo.simula.no'
+languageCode = 'en-us'
+title = 'Simula Model Zoo'
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Categories"
+    pre = "category"
+    url = "/categories/"
+    weight = 2
+  [[menu.main]]
+    name = "Tags"
+    pre = "tag"
+    url = "/tags/"
+    weight = 3
+  [[menu.main]]
+    name = "How-to"
+    pre = "docs"
+    url = "/docs/"
+    weight = 4
+
+[params]
+  logo = "images/simula_main_small_RGB.png"
+
+
+[markup]
+  [markup.highlight]
+    noClasses = false   # Use syntax theme in static/css
+    #style = 'github'

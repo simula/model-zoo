@@ -1,0 +1,32 @@
+<!-- Template for metadata card in side bar of single pages -->
+
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+
+<div class="card">
+    <div class="card-header">
+        <h5>Metadata</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            <span class="bi bi-calendar-date"></span>
+            <time datetime="{{ $dateTime }}"> Published {{ .PublishDate.Format $dateFormat }}</time>
+            <br>
+                <div class="d-grid gap-2">
+                {{ if .Params.code_repository }}
+                    <a class="btn btn-primary" href="{{ .Params.code_repository }}"><i class="bi bi-code-slash"></i> Code repository</a>
+                {{ else }}
+                    <a class="btn btn-primary disabled" ><i class="bi bi-code-slash"></i> No repository linked</a>
+                {{ end }}
+            </div>
+            <br>
+            <h5>Categories</h5>
+            {{ partial "list_categories.html" .}}
+            <br><br>
+            <h5>Tags</h5>
+            {{ partial "list_tags.html" .}}
+        </p>
+    </div>
+</div>
+
+

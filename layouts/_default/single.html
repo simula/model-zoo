@@ -1,0 +1,92 @@
+{{ define "main" }}
+
+<!-- Template for a single page, i.e. the model description page -->
+
+
+<!-- <style>
+.nav-tabs .nav-item .nav-link {
+  background-color: #fff;
+}
+.nav-tabs .nav-item .nav-link.active {
+    background-color: #F8F9FA;
+}
+</style> -->
+
+<div class='container'>
+    <div class="row mt-5">
+        <h1>{{ .Title}}</h1>
+            <br>
+            <p class="lead">{{ .Summary }}</p>
+        <div class="col-sm-9">
+            
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5>Download</h5>
+                    <ul class="nav nav-tabs nav-fill " id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#files" type="button" role="tab">Files</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#image" type="button" role="tab">Docker image</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#notebook" type="button" role="tab">Notebook</button>
+                          </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="files" role="tabpanel" aria-labelledby="home-tab">
+                            <br>
+                            <i>If the download does not start automatically, right-click and select "Save Link As..."</i>
+                            <br><br>
+                            {{ if .Params.files.requirements.url }}
+                                <a class="btn btn-primary" href="{{ .Params.files.requirements.url }}" download><i class="bi bi-arrow-down"></i> {{ .Params.files.requirements.display_name }}</a>
+                            {{ end }}
+                            {{ if .Params.files.model.url }}
+                                <a class="btn btn-primary" href="{{ .Params.files.model.url }}" download><i class="bi bi-arrow-down"></i> {{ .Params.files.model.display_name }}</a>
+                            {{ else }}
+                                <a class="btn btn-primary disabled" href="#" download> <i>No model file provided</i></a>
+                            {{ end }}
+                            <br><br>
+                            {{ if .Params.files.model.url }}
+                            <i>Or download using <code>wget</code>:</i>
+                            <br>
+                            <div class="highlight">
+                                <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">wget {{ .Params.files.requirements.url }}
+wget {{ .Params.files.model.url }}</code></pre>
+<!-- unzip {{ .Params.files.model.display_name }}</code></pre> -->
+                            </div>
+                            {{ end }}
+                        </div>
+                        <div class="tab-pane fade" id="image" role="tabpanel">
+                            <br>
+                            {{ if .Params.files.image.url }}
+                                <a class="btn btn-primary" href="{{ .Params.files.image.url }}" download><i class="bi bi-arrow-down"></i> {{ .Params.files.image.display_name }}</a>
+                            {{ else }}
+                            <a class="btn btn-primary disabled" href="#"><i>No image provided</i></a>
+                            {{ end }}
+                        </div>
+                        <div class="tab-pane fade" id="notebook" role="tabpanel">
+                            <br>
+                            {{ if .Params.notebook }}
+                                <a class="btn btn-primary" href="{{ .Params.notebook }}" download><i class="bi bi-journal-bookmark"></i> Launch Jupyter notebook</a>
+                            {{ else }}
+                            <a class="btn btn btn-primary disabled" href="#"><i>No notebook provided</i></a>
+                            {{ end }}
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <br>
+            {{ .Content }}
+        </div>
+        <div class="col-sm-3">
+            {{ partial "metadata_card.html" .}}
+        </div>
+    </div>
+
+
+</div>
+
+
+
+{{ end }}

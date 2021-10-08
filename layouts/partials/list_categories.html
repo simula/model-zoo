@@ -1,0 +1,5 @@
+<!-- Loop over categories and create links -->
+
+{{ range .Params.categories }}
+    <span class="btn btn-sm btn-outline-primary tag-btn"><i class="bi bi-folder"></i> {{ . }}</span>
+{{ end}}
