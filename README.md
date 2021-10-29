@@ -11,23 +11,35 @@ clone the repo and use `hugo new` to make a new page with default metadata:
 ```shell
 git clone git@github.com:simula/model-zoo.git
 cd model-zoo
-hugo new models/my-new-model/index.md
+hugo new models/<my-new-model>/index.md   # Replace "<my-new-model>"
 ```
 
 Then edit the new file, and run a local server to check how it looks:
 
 ```shell
-hugo server -D
-# Go to localhost:1313/
+hugo server
+# Go to http://localhost:1313
 ```
+Make sure to set `draft=false` in the new markdown files, otherwise they will
+not be published.
+
+If everything looks good, create a branch for the new changes and submit a pull
+request:
+```shell
+git checkout -b feature/<my-new-model>
+git add models/<my-new-model>/index.md
+git ci -m "Added my new model"
+git push -u origin feature/<my-new-model>
+# Click the link to github.com and finish the PR
+``` 
 
 ### Deployment
 
-To build the webpage HTML and save it in the `public/` directory, run
-```shell
-hugo
-```
-Make sure to set `draft=false` in the new markdown files, otherwise they will
-not be published. 
+After the PR has been approved and merged, log in to  `modelzoo.simula.no` and
+build the HTML pages:
 
-TODO: Move files to server 
+```shell
+git pull    # Pull changes
+hugo        # Build pages
+sudo cp -r public/* /var/www/modelzoo/*
+```

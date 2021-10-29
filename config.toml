@@ -1,4 +1,3 @@
-baseURL = 'modelzoo.simula.no'
 languageCode = 'en-us'
 title = 'Simula Model Zoo'
 
@@ -25,7 +24,7 @@ title = 'Simula Model Zoo'
     weight = 4
 
 [params]
-  logo = "images/simula_main_small_RGB.png"
+  logo = "/images/simula_main_small_RGB.png"
 
 
 [markup]
