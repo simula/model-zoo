@@ -41,5 +41,5 @@ build the HTML pages:
 ```shell
 git pull    # Pull changes
 hugo        # Build pages
-sudo cp -r public/* /var/www/modelzoo/*
+sudo cp -r public/* /var/www/modelzoo/
 ```
