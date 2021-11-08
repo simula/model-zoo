@@ -64,9 +64,10 @@ import deepfakeecg
 deepfakeecg.generate(5, ".", start_id=0, run_device="cuda") # Generate 5 ECGs to the current folder starting from id=0
 ```
 ### Pre-generated DeepFake ECGs and corresponding MUSE reports are here: https://osf.io/6hved/
-    - In this repository, there are two DeepFake datasets:
-        1. 150k dataset - Randomly generated 150k DeepFakeECGs
-        2. Filtered all normals dataset - Only "Normal" ECGs filtered using the MUSE analysis report
+
+- In this repository, there are two DeepFake datasets:
+  1. 150k dataset - Randomly generated 150k DeepFakeECGs
+  2. Filtered all normals dataset - Only "Normal" ECGs filtered using the MUSE analysis report
 
 ## A real ECG vs a DeepFake ECG (from left to right):
 
@@ -78,12 +79,14 @@ deepfakeecg.generate(5, ".", start_id=0, run_device="cuda") # Generate 5 ECGs to
 
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 
 ## Citation:
+
 ```latex
 @article{ecg-pulse2pulse,
 	author = {Thambawita, Vajira Lasantha and Isaksen, Jonas L and Hicks, Steven and Ghouse, Jonas and Ahlberg, Gustav and Linneberg, Allan and Grarup, Niels and Ellervik, Christina and Olesen, Morten Salling and Hansen, Torben and Graff, Claus and Holstein-Rathlou, Niels-Henrik and Str{\"u}mke, Inga and Hammer, Hugo L. and Maleckar, Mary M and Halvorsen, P{\aa}l and Riegler, Michael A. and Kanters, J{\o}rgen K.},

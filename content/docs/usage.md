@@ -98,3 +98,5 @@ installed on all eX3 nodes.
 | Can run any software without installation &nbsp;| Files/downloads are large (GBs) | 
 | High reproducibility | Somewhat high learning rate | 
 | High portability | | 
+
+We haven't yet started adding containers, but it will be ready soon :) 
