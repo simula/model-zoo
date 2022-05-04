@@ -1,6 +1,6 @@
 # Simula Model Zoo
 
-Repository for the internal Simula machine learning [model zoo](modelzoo.simula.no).
+Repository for the internal Simula machine learning [model zoo](http://modelzoo.simula.no/).
 
 ### Development
 
@@ -45,7 +45,7 @@ git push -u origin feature/<my-new-model>
 ### Deployment
 
 After the PR has been approved and merged, the changes must be propagated to
-the server at <modelzoo.simula.no>. Either an admin will do this for you, or
+the server at http://modelzoo.simula.no/. Either an admin will do this for you, or
 you can request admin access by submitting the IT support
 [form](https://sites.google.com/a/simula.no/support/).
 
